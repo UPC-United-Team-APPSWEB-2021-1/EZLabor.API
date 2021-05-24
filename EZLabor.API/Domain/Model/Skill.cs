@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace EZLabor.API.Domain.Models
 {
-    public class Freelancer : User
+    public class Skill
     {
-        public int Rating { get; set; }
-        public string Specially { get; set; }
+        public int Id { get; set; }
+        public string TechnologyName { get; set; }
+        public string CertificateUrl { get; set; }
         public List<FreelancerSkill> FreelancerSkills { get; set; }
-        public List<Proposal> Proposals { get; set; }
-
     }
 }

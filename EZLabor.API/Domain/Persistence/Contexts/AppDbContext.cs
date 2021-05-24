@@ -16,9 +16,9 @@ namespace EZLabor.API.Domain.Persistence.Contexts
 
         public DbSet<Freelancer> Freelancers { get; set; }
         public DbSet<Employer> Employers { get; set; }
-        public DbSet<Knowledge> Knowledges { get; set; }
+        public DbSet<Skill> Skills { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
-        public DbSet<FreelancerKnowledge> FreelancerKnowledges { get; set; }
+        public DbSet<FreelancerSkill> FreelancerSkills { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -95,28 +95,28 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Website = "microsoft.com"
                     }
                 );
-            
 
-            ///Knowledge Entity
-            builder.Entity<Knowledge>().ToTable("Knowledge");
+
+            ///Skill Entity
+            builder.Entity<Skill>().ToTable("Skill");
             //Contraints
-            builder.Entity<Knowledge>().HasKey(p => p.Id);
-            builder.Entity<Knowledge>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Knowledge>().Property(p => p.TechnologyName).IsRequired().HasMaxLength(50);
-            builder.Entity<Knowledge>().Property(p => p.CertificateUrl);
+            builder.Entity<Skill>().HasKey(p => p.Id);
+            builder.Entity<Skill>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Skill>().Property(p => p.TechnologyName).IsRequired().HasMaxLength(50);
+            builder.Entity<Skill>().Property(p => p.CertificateUrl);
             
             //Seed Data
-            builder.Entity<Knowledge>().HasData
+            builder.Entity<Skill>().HasData
                 (
-                    new Knowledge
+                    new Skill
                     {
                         Id = 300,
-                        TechnologyName = "Advanced knowledge in web applications",
+                        TechnologyName = "Advanced skill in web applications",
                     },
-                    new Knowledge
+                    new Skill
                     {
                         Id = 301,
-                        TechnologyName = "Advanced knowledge in photoshop",
+                        TechnologyName = "Advanced skill in photoshop",
                     }
                 );
             
@@ -184,34 +184,34 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         EmployerId = 201
                     }
                 );
-            
 
-            ///FreelancerKnowledge
-            builder.Entity<FreelancerKnowledge>().ToTable("FreelancerKnowledge");
+
+            ///FreelancerSkill
+            builder.Entity<FreelancerSkill>().ToTable("FreelancerSkill");
             //Contraints
-            builder.Entity<FreelancerKnowledge>().HasKey(pt => new { pt.FreelancerId, pt.KnowledgeId });
+            builder.Entity<FreelancerSkill>().HasKey(pt => new { pt.FreelancerId, pt.SkillId });
             //Relationships
-            builder.Entity<FreelancerKnowledge>()
+            builder.Entity<FreelancerSkill>()
                 .HasOne(pt => pt.Freelancer)
-                .WithMany(pt => pt.FreelancerKnowledges)
+                .WithMany(pt => pt.FreelancerSkills)
                 .HasForeignKey(pt => pt.FreelancerId);
-            builder.Entity<FreelancerKnowledge>()
-                .HasOne(pt => pt.Knowledge)
-                .WithMany(pt => pt.FreelancerKnowledges)
-                .HasForeignKey(pt => pt.KnowledgeId);
+            builder.Entity<FreelancerSkill>()
+                .HasOne(pt => pt.Skill)
+                .WithMany(pt => pt.FreelancerSkills)
+                .HasForeignKey(pt => pt.SkillId);
 
             
-            builder.Entity<FreelancerKnowledge>().HasData
+            builder.Entity<FreelancerSkill>().HasData
                 (
-                    new FreelancerKnowledge
+                    new FreelancerSkill
                     {
                         FreelancerId = 100,
-                        KnowledgeId = 301,
+                        SkillId = 301,
                     },
-                    new FreelancerKnowledge
+                    new FreelancerSkill
                     {
                         FreelancerId = 101,
-                        KnowledgeId = 300,
+                        SkillId = 300,
                     }
                 );
             
