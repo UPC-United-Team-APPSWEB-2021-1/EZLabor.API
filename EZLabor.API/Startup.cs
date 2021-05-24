@@ -46,16 +46,16 @@ namespace EZLabor.API
             // Dependency Injection Configuration
             services.AddScoped<IFreelancerRepository, FreelancerRepository>();
             services.AddScoped<IEmployerRepository, EmployerRepository>();
-            services.AddScoped<IKnowledgeRepository, KnowledgeRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
             services.AddScoped<IProposalRepository, ProposalRepository>();
-            services.AddScoped<IFreelancerKnowledgeRepository, FreelancerKnowledgeRepository>();
+            services.AddScoped<IFreelancerSkillRepository, FreelancerSkillRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IFreelancerService, FreelancerService>();
             services.AddScoped<IEmployerService, EmployerService>();
-            services.AddScoped<IKnowledgeService, KnowledgeService>();
-            services.AddScoped<IProposalRepository, ProposalRepository>();
-            services.AddScoped<IFreelancerKnowledgeService, FreelancerKnowledgeService>();
+            services.AddScoped<ISkillService, SkillService>();
+            services.AddScoped<IProposalService, ProposalService>();
+            services.AddScoped<IFreelancerSkillService, FreelancerSkillService>();
 
             // Endpoints Case Conventions Configuration
 
