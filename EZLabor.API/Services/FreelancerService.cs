@@ -12,14 +12,14 @@ namespace EZLabor.API.Services
     public class FreelancerService: IFreelancerService
     {
         private readonly IFreelancerRepository _freelancerRepository;
-        private readonly IFreelancerKnowledgeRepository _freelancerKnowledgeRepository;
+        private readonly IFreelancerSkillRepository _freelancerSkillRepository;
         private readonly IProposalRepository _proposalRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public FreelancerService(IFreelancerRepository freelancerRepository, IFreelancerKnowledgeRepository freelancerKnowledgeRepository, IProposalRepository proposalRepository, IUnitOfWork unitOfWork)
+        public FreelancerService(IFreelancerRepository freelancerRepository, IFreelancerSkillRepository freelancerSkillRepository, IProposalRepository proposalRepository, IUnitOfWork unitOfWork)
         {
             _freelancerRepository = freelancerRepository;
-            _freelancerKnowledgeRepository = freelancerKnowledgeRepository;
+            _freelancerSkillRepository = freelancerSkillRepository;
             _proposalRepository = proposalRepository;
             _unitOfWork = unitOfWork;
         }
@@ -65,10 +65,10 @@ namespace EZLabor.API.Services
             return freelancers;
         }
 
-        public async Task<IEnumerable<Freelancer>> ListByKnowledgeId(int knowledgeId)
+        public async Task<IEnumerable<Freelancer>> ListBySkillId(int skillId)
         {
-            var freelancerKnowledges = await _freelancerKnowledgeRepository.ListByKnowledgeIdAsync(knowledgeId);
-            var freelancers = freelancerKnowledges.Select(pt => pt.Freelancer).ToList();
+            var freelancerSkills = await _freelancerSkillRepository.ListBySkillIdAsync(skillId);
+            var freelancers = freelancerSkills.Select(pt => pt.Freelancer).ToList();
             return freelancers;
         }
 
