@@ -15,7 +15,7 @@ namespace EZLabor.API.Mapping
             CreateMap<SaveUserResource, User>();
             CreateMap<SaveEmployerResource, Employer>();
             CreateMap<SaveFreelancerResource, Freelancer>();
-            CreateMap<SaveKnowledgeResource, Knowledge>();
+            CreateMap<SaveSkillResource, Skill>();
         }
     }
 }
