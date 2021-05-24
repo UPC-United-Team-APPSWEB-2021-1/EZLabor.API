@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace EZLabor.API.Controllers
 {
     [ApiController]
-    [Route("/api/freelancers/{freelancerId}/knowledge")]
+    [Route("/api/freelancers/{freelancerId}/skills")]
     [Produces("application/json")]
     public class ProposalsController: ControllerBase
     {
@@ -34,8 +34,8 @@ namespace EZLabor.API.Controllers
             return resources;
         }
 
-        [HttpPost("{knowledgeId}")]
-        public async Task<IActionResult> AssignFreelancerKnowledge(int employerId, int freelancerId)
+        [HttpPost("{proposalId}")]
+        public async Task<IActionResult> AssignProposal(int employerId, int freelancerId)
         {
             var result = await _proposalService.AssignProposalAsync(employerId, freelancerId);
             if (!result.Success)
@@ -46,8 +46,8 @@ namespace EZLabor.API.Controllers
 
         }
 
-        [HttpDelete("{knowledgeId}")]
-        public async Task<IActionResult> UnassignProductTag(int employerId, int freelancerId)
+        [HttpDelete("{proposalId}")]
+        public async Task<IActionResult> UnassignProposal(int employerId, int freelancerId)
         {
             var result = await _proposalService.UnassignProposalAsync(employerId, freelancerId);
             if (!result.Success)
