@@ -18,7 +18,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
         public DbSet<Employer> Employers { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
-        public DbSet<FreelancerSkill> FreelancerSkills { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -104,7 +103,11 @@ namespace EZLabor.API.Domain.Persistence.Contexts
             builder.Entity<Skill>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Skill>().Property(p => p.TechnologyName).IsRequired().HasMaxLength(50);
             builder.Entity<Skill>().Property(p => p.CertificateUrl);
-            
+            builder.Entity<Skill>()
+                .HasOne(pt => pt.Freelancer)
+                .WithMany(pt => pt.Skills)
+                .HasForeignKey(pt => pt.FreelancerId);
+
             //Seed Data
             builder.Entity<Skill>().HasData
                 (
@@ -186,34 +189,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                 );
 
 
-            ///FreelancerSkill
-            builder.Entity<FreelancerSkill>().ToTable("FreelancerSkill");
-            //Contraints
-            builder.Entity<FreelancerSkill>().HasKey(pt => new { pt.FreelancerId, pt.SkillId });
-            //Relationships
-            builder.Entity<FreelancerSkill>()
-                .HasOne(pt => pt.Freelancer)
-                .WithMany(pt => pt.FreelancerSkills)
-                .HasForeignKey(pt => pt.FreelancerId);
-            builder.Entity<FreelancerSkill>()
-                .HasOne(pt => pt.Skill)
-                .WithMany(pt => pt.FreelancerSkills)
-                .HasForeignKey(pt => pt.SkillId);
-
             
-            builder.Entity<FreelancerSkill>().HasData
-                (
-                    new FreelancerSkill
-                    {
-                        FreelancerId = 100,
-                        SkillId = 301,
-                    },
-                    new FreelancerSkill
-                    {
-                        FreelancerId = 101,
-                        SkillId = 300,
-                    }
-                );
             
 
             // Apply Naming Convention

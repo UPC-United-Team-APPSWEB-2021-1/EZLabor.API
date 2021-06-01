@@ -12,15 +12,19 @@ namespace EZLabor.API.Services
     public class FreelancerService: IFreelancerService
     {
         private readonly IFreelancerRepository _freelancerRepository;
-        private readonly IFreelancerSkillRepository _freelancerSkillRepository;
         private readonly IProposalRepository _proposalRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public FreelancerService(IFreelancerRepository freelancerRepository, IFreelancerSkillRepository freelancerSkillRepository, IProposalRepository proposalRepository, IUnitOfWork unitOfWork)
+        public FreelancerService(IFreelancerRepository freelancerRepository, IProposalRepository proposalRepository, IUnitOfWork unitOfWork)
         {
             _freelancerRepository = freelancerRepository;
-            _freelancerSkillRepository = freelancerSkillRepository;
             _proposalRepository = proposalRepository;
+            _unitOfWork = unitOfWork;
+        }
+
+        public FreelancerService(IFreelancerRepository freelancerRepository, IUnitOfWork unitOfWork)
+        {
+            _freelancerRepository = freelancerRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -65,12 +69,6 @@ namespace EZLabor.API.Services
             return freelancers;
         }
 
-        public async Task<IEnumerable<Freelancer>> ListBySkillId(int skillId)
-        {
-            var freelancerSkills = await _freelancerSkillRepository.ListBySkillIdAsync(skillId);
-            var freelancers = freelancerSkills.Select(pt => pt.Freelancer).ToList();
-            return freelancers;
-        }
 
         public async Task<FreelancerResponse> SaveAsync(Freelancer freelancer)
         {
