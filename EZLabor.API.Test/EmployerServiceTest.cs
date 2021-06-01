@@ -33,7 +33,7 @@ namespace EZLabor.API.Test
             var message = result.Message;
 
             //Assert
-            message.Should().Be("Category not found");
+            message.Should().Be("Employer not found");
         }
 
         private Mock<IEmployerRepository> GetDefaultIEmployerRepositoryInstance()
