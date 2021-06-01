@@ -10,6 +10,7 @@ namespace EZLabor.API.Domain.Models
         public int Id { get; set; }
         public string TechnologyName { get; set; }
         public string CertificateUrl { get; set; }
-        public List<FreelancerSkill> FreelancerSkills { get; set; }
+        public int FreelancerId { get; set; }
+        public Freelancer Freelancer { get; set; }
     }
 }
