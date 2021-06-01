@@ -41,6 +41,10 @@ namespace EZLabor.API.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get skill",
+            Description = "Get an Skill by Id",
+            OperationId = "GetSkill")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(SkillResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -53,6 +57,11 @@ namespace EZLabor.API.Controllers
             return Ok(skillResource);
         }
 
+
+        [SwaggerOperation(
+            Summary = "Post skill",
+            Description = "Post a new Skill",
+            OperationId = "PostSkill")]
         [HttpPost]
         [ProducesResponseType(typeof(SkillResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -71,6 +80,10 @@ namespace EZLabor.API.Controllers
             return Ok(skillResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update skill",
+            Description = "Update an Skill",
+            OperationId = "UpdateSkill")]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(SkillResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -89,6 +102,11 @@ namespace EZLabor.API.Controllers
             return Ok(skillResource);
         }
 
+
+        [SwaggerOperation(
+            Summary = "Delete skill",
+            Description = "Delete an Skill",
+            OperationId = "DeleteSkill")]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(SkillResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]

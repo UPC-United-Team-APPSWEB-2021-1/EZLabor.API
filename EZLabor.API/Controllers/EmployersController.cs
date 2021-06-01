@@ -41,6 +41,11 @@ namespace EZLabor.API.Controllers
             return resources;
         }
 
+
+        [SwaggerOperation(
+            Summary = "Get employer",
+            Description = "Get an Employer by Id",
+            OperationId = "GetEmployer")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(EmployerResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -53,6 +58,10 @@ namespace EZLabor.API.Controllers
             return Ok(employerResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Post employer",
+            Description = "Post a new Employer",
+            OperationId = "PostEmployer")]
         [HttpPost]
         [ProducesResponseType(typeof(EmployerResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -71,6 +80,10 @@ namespace EZLabor.API.Controllers
             return Ok(employerResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update employer",
+            Description = "Update an Employer",
+            OperationId = "UpdateEmployer")]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(EmployerResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -89,6 +102,10 @@ namespace EZLabor.API.Controllers
             return Ok(employerResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete employer",
+            Description = "Delete an Employer",
+            OperationId = "DeleteEmployer")]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(EmployerResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]

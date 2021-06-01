@@ -3,6 +3,7 @@ using EZLabor.API.Domain.Models;
 using EZLabor.API.Domain.Services;
 using EZLabor.API.Resources;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace EZLabor.API.Controllers
 {
     [ApiController]
-    [Route("/api/freelancers/{freelancerId}/skills")]
+    [Route("/api/freelancers/{freelancerId}")]
     [Produces("application/json")]
     public class ProposalsController: ControllerBase
     {
@@ -26,15 +27,24 @@ namespace EZLabor.API.Controllers
             _mapper = mapper;
         }
 
+
+        [SwaggerOperation(
+            Summary = "Get proposals",
+            Description = "Get Proposals by FreelancerId",
+            OperationId = "GetProposals")]
         [HttpGet]
-        public async Task<IEnumerable<EmployerResource>> GetAllByProductIdAsync(int freelancerId)
+        public async Task<IEnumerable<EmployerResource>> GetAllByFreelancerIdAsync(int freelancerId)
         {
             var employers = await _employerService.ListByFreelancerId(freelancerId);
             var resources = _mapper.Map<IEnumerable<Employer>, IEnumerable<EmployerResource>>(employers);
             return resources;
         }
 
-        [HttpPost("{proposalId}")]
+        [SwaggerOperation(
+            Summary = "Post proposal",
+            Description = "Post Proposal",
+            OperationId = "PostProposal")]
+        [HttpPost("employer/{employerId}")]
         public async Task<IActionResult> AssignProposal(int employerId, int freelancerId)
         {
             var result = await _proposalService.AssignProposalAsync(employerId, freelancerId);
@@ -46,7 +56,11 @@ namespace EZLabor.API.Controllers
 
         }
 
-        [HttpDelete("{proposalId}")]
+        [SwaggerOperation(
+            Summary = "Delete proposals",
+            Description = "Delete an Proposal",
+            OperationId = "DeleteProposal")]
+        [HttpDelete("employer/{employerId}")]
         public async Task<IActionResult> UnassignProposal(int employerId, int freelancerId)
         {
             var result = await _proposalService.UnassignProposalAsync(employerId, freelancerId);
