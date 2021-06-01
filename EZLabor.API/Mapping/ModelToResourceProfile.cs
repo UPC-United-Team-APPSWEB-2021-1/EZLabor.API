@@ -12,10 +12,9 @@ namespace EZLabor.API.Mapping
     {
         public ModelToResourceProfile()
         {
-            CreateMap<User,SaveUserResource> ();
             CreateMap<Employer, SaveEmployerResource > ();
             CreateMap<Freelancer, SaveFreelancerResource> ();
-            CreateMap<Knowledge, SaveKnowledgeResource> ();
+            CreateMap<Skill, SaveSkillResource> ();
         }
         
     }
