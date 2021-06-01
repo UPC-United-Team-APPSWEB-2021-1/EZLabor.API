@@ -48,14 +48,12 @@ namespace EZLabor.API
             services.AddScoped<IEmployerRepository, EmployerRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
             services.AddScoped<IProposalRepository, ProposalRepository>();
-            services.AddScoped<IFreelancerSkillRepository, FreelancerSkillRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IFreelancerService, FreelancerService>();
             services.AddScoped<IEmployerService, EmployerService>();
             services.AddScoped<ISkillService, SkillService>();
             services.AddScoped<IProposalService, ProposalService>();
-            services.AddScoped<IFreelancerSkillService, FreelancerSkillService>();
 
             // Endpoints Case Conventions Configuration
 
