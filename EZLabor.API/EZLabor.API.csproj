@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="SocialMedia\Controllers\" />
-    <Folder Include="SocialMedia\Services\" />
   </ItemGroup>
 
 </Project>

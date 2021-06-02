@@ -10,7 +10,7 @@ namespace EZLabor.API.SocialMedia.Domain.Services
     interface IQualificationService
     {
         Task<IEnumerable<Qualification>> ListAsync();
-        Task<IEnumerable<Qualification>> ListBySolutionId(int solutionId);
+        Task<IEnumerable<Qualification>> ListBySolutionIdAsync(int solutionId);
         Task<QualificationResponse> GetByIdAsync(int id);
         Task<QualificationResponse> SaveAsync(Qualification qualification);
         Task<QualificationResponse> UpdateAsync(int id, Qualification qualification);

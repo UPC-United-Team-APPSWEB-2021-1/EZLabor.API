@@ -10,7 +10,7 @@ namespace EZLabor.API.SocialMedia.Domain.Services
     public interface INotificationService
     {
         Task<IEnumerable<Notification>> ListAsync();
-        Task<IEnumerable<Notification>> ListByUserId(int userId);
+        Task<IEnumerable<Notification>> ListByUserIdAsync(int userId);
         Task<NotificationResponse> GetByIdAsync(int id);
         Task<NotificationResponse> SaveAsync(Notification notification);
         Task<NotificationResponse> UpdateAsync(int id, Notification notification);
