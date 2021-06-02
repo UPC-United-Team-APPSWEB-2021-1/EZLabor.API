@@ -1,5 +1,5 @@
 ﻿using EZLabor.API.Accounts.Domain.Model;
-using EZLabor.API.Extensions;
+using EZLabor.API.Accounts.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

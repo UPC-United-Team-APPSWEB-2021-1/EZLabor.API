@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using EZLabor.API.Domain.Models;
-using EZLabor.API.Resources;
+using EZLabor.API.Accounts.Domain.Model;
+using EZLabor.API.Accounts.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
