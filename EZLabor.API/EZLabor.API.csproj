@@ -16,4 +16,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SocialMedia\Controllers\" />
+    <Folder Include="SocialMedia\Domain\Persistence\Contexts\" />
+    <Folder Include="SocialMedia\Persistence\Repositories\" />
+    <Folder Include="SocialMedia\Services\" />
+    <Folder Include="SocialMedia\Resources\" />
+  </ItemGroup>
+
 </Project>

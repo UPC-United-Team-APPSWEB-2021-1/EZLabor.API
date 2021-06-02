@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Domain.Models
+namespace EZLabor.API.Accounts.Domain.Model
 {
     public enum EMoneyType: byte
     {
