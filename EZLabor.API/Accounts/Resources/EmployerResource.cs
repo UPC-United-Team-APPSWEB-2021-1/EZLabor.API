@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Resources
+namespace EZLabor.API.Accounts..Resources
 {
     public class EmployerResource
     {

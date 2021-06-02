@@ -14,5 +14,6 @@ namespace EZLabor.API.Accounts.Domain.Model
         public string Password { get; set; }
         public IList<Publication> Publications { get; set; } = new List<Publication>();
         public IList<Comment> Comments { get; set; } = new List<Comment>();
+        public IList<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }

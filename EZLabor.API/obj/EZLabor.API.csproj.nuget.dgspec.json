@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj": {}
+    "C:\\Users\\Ryzen\\Documents\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj": {
+    "C:\\Users\\Ryzen\\Documents\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
+        "projectUniqueName": "C:\\Users\\Ryzen\\Documents\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
         "projectName": "EZLabor.API",
-        "projectPath": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\obj\\",
+        "projectPath": "C:\\Users\\Ryzen\\Documents\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
+        "packagesPath": "C:\\Users\\Ryzen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ryzen\\Documents\\GitHub\\EZLabor.API\\EZLabor.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Ryzen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -55,15 +54,15 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Relational.Design": {
               "target": "Package",
@@ -71,11 +70,11 @@
             },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.3.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.1.4, )"
             },
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",

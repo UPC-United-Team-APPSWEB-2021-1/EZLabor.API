@@ -1,4 +1,4 @@
-﻿using EZLabor.API.Domain.Models;
+﻿using EZLabor.API.Accounts.Domain.Model;
 using EZLabor.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;

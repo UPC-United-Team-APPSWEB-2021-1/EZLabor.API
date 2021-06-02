@@ -14,5 +14,7 @@ namespace EZLabor.API.SocialMedia.Domain.Model
         public string VideoUrl { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+
+        public IList<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

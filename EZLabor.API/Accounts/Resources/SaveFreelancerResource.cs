@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Resources
+namespace EZLabor.API.Accounts.Resources
 {
     public class SaveFreelancerResource
     {
