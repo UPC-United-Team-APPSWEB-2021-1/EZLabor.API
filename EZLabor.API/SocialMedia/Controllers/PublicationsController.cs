@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EZLabor.API.Accounts.Extensions;
+using EZLabor.API.Extensions;
 using EZLabor.API.SocialMedia.Domain.Model;
 using EZLabor.API.SocialMedia.Domain.Services;
 using EZLabor.API.SocialMedia.Resources;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EZLabor.API.SocialMedia.Domain.Services
 {
-    interface IQualificationService
+    public interface IQualificationService
     {
         Task<IEnumerable<Qualification>> ListAsync();
         Task<IEnumerable<Qualification>> ListBySolutionIdAsync(int solutionId);

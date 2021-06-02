@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Accounts.Domain.Model
+namespace EZLabor.API.Domain.Model
 {
     public class Employer: User
     {
