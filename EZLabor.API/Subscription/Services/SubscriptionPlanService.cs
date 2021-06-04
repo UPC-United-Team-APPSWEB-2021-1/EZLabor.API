@@ -1,4 +1,4 @@
-﻿using EZLabor.API.Domain.Persistence.Repositories;
+﻿using EZLabor.API.Commons.Domain.Persistence.Repositories;
 using EZLabor.API.Subscription.Domain.Model;
 using EZLabor.API.Subscription.Domain.Persistence.Repositories;
 using EZLabor.API.Subscription.Domain.Services;

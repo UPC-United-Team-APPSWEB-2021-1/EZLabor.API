@@ -1,6 +1,8 @@
-﻿using EZLabor.API.Percistence.Repositories;
+﻿using EZLabor.API.Commons.Domain.Persistence.Contexts;
+using EZLabor.API.Commons.Domain.Persistence.Repositories;
 using EZLabor.API.Subscription.Domain.Model;
 using EZLabor.API.Subscription.Domain.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

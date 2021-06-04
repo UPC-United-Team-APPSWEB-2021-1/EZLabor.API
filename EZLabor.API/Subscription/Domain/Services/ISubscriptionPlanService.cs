@@ -14,5 +14,6 @@ namespace EZLabor.API.Subscription.Domain.Services
         Task<SubscriptionPlanResponse> UpdateAsync(int id, SubscriptionPlan subscriptionPlan);
         Task<SubscriptionPlanResponse> DeleteAsync(int id);
         Task<SubscriptionPlanResponse> GetByIdAsync(int id);
+
     }
 }
