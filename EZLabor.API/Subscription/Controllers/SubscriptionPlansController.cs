@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using EZLabor.API.Domain.Models;
+using EZLabor.API.Domain.Services;
 using EZLabor.API.Extensions;
+using EZLabor.API.Resources;
 using EZLabor.API.Subscription.Domain.Model;
 using EZLabor.API.Subscription.Domain.Services;
 using EZLabor.API.Subscription.Resources;
@@ -10,12 +13,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Subscription.Controllers
+namespace EZLabor.API.Controllers
 {
     [Route("/api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class SubscriptionPlansController : ControllerBase
+    public class SubscriptionPlansController: ControllerBase
     {
         private readonly ISubscriptionPlanService _subscriptionPlanService;
         private readonly IMapper _mapper;
