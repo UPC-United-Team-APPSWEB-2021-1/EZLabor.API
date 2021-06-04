@@ -93,9 +93,9 @@ namespace EZLabor.API.SocialMedia.Services
             }
         }
 
-        public async Task<IEnumerable<Notification>> ListByUserIdAsync(int userId)
+        public async Task<IEnumerable<Notification>> ListByFreelancerIdAsync(int freelancerId)
         {
-            return await _notificationRepository.ListByUserIdAsync(userId);
+            return await _notificationRepository.ListByFreelancerIdAsync(freelancerId);
         }
     }
 }

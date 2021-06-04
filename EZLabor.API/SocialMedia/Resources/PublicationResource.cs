@@ -11,6 +11,5 @@ namespace EZLabor.API.SocialMedia.Resources
         public string Name { get; set; }
         public DateTime UploadAt { get; set; }
         public string VideoUrl { get; set; }
-        public UserResource User { get; set; }
     }
 }

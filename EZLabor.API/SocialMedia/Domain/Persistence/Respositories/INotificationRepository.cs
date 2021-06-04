@@ -11,7 +11,8 @@ namespace EZLabor.API.SocialMedia.Domain.Persistence.Respositories
         Task<IEnumerable<Notification>> ListAsync();
         Task AddAsync(Notification notification);
         Task<Notification> FindById(int id);
-        Task<IEnumerable<Notification>> ListByUserIdAsync(int userId);
+        Task<IEnumerable<Notification>> ListByEmployerIdAsync(int employerId);
+        Task<IEnumerable<Notification>> ListByFreelancerIdAsync(int FreelancerId);
         void Update(Notification notification);
         void Remove(Notification notification);
     }

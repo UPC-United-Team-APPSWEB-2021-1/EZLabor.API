@@ -1,4 +1,5 @@
-﻿using EZLabor.API.SocialMedia.Domain.Persistence.Contexts;
+﻿
+using EZLabor.API.Domain.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

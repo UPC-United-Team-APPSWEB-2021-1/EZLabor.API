@@ -11,7 +11,7 @@ namespace EZLabor.API.SocialMedia.Domain.Services
     {
         Task<IEnumerable<Comment>> ListAsync();
         Task<IEnumerable<Comment>> ListByPublicationIdAsync(int publicationId);
-        Task<IEnumerable<Comment>> ListByUserIdAsync(int userId);
+        Task<IEnumerable<Comment>> ListByEmployerIdAsync(int userId);
         Task<CommentResponse> GetByIdAsync(int id);
         Task<CommentResponse> SaveAsync(Comment comment);
         Task<CommentResponse> UpdateAsync(int id, Comment comment);

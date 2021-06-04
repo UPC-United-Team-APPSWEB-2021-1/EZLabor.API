@@ -1,5 +1,5 @@
-﻿using EZLabor.API.SocialMedia.Domain.Model;
-using EZLabor.API.SocialMedia.Domain.Persistence.Contexts;
+﻿using EZLabor.API.Domain.Persistence.Contexts;
+using EZLabor.API.SocialMedia.Domain.Model;
 using EZLabor.API.SocialMedia.Domain.Persistence.Respositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -39,10 +39,16 @@ namespace EZLabor.API.SocialMedia.Persistence.Repositories
             _context.Notifications.Update(notification);
         }
 
-        public async Task<IEnumerable<Notification>> ListByUserIdAsync(int userId) =>
+        public async Task<IEnumerable<Notification>> ListByFreelancerIdAsync(int freelancerId) =>
             await _context.Notifications
-                .Where(p => p.UserId == userId)
-                .Include(p => p.User)
+                .Where(p => p.FreelancerId == freelancerId)
+                .Include(p => p.Freelancer)
+                .ToListAsync();
+
+        public async Task<IEnumerable<Notification>> ListByEmployerIdAsync(int employerId) =>
+            await _context.Notifications
+                .Where(p => p.EmployerId == employerId)
+                .Include(p => p.Employer)
                 .ToListAsync();
     }
 }

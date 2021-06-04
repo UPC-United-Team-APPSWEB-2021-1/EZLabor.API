@@ -1,5 +1,5 @@
-﻿using EZLabor.API.SocialMedia.Domain.Model;
-using EZLabor.API.SocialMedia.Domain.Persistence.Contexts;
+﻿using EZLabor.API.Domain.Persistence.Contexts;
+using EZLabor.API.SocialMedia.Domain.Model;
 using EZLabor.API.SocialMedia.Domain.Persistence.Respositories;
 using Microsoft.EntityFrameworkCore;
 using System;

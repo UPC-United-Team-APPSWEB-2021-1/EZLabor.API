@@ -11,7 +11,8 @@ namespace EZLabor.API.SocialMedia.Domain.Persistence.Respositories
         Task<IEnumerable<Publication>> ListAsync();
         Task AddAsync(Publication publication);
         Task<Publication> FindById(int id);
-        Task<IEnumerable<Publication>> ListByUserIdAsync(int userId);
+        Task<IEnumerable<Publication>> ListByFreelancerIdAsync(int freelancerId);
+        Task<IEnumerable<Publication>> ListByEmployerIdAsync(int employerId);
         void Update(Publication publication);
         void Remove(Publication publication);
     }

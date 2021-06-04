@@ -10,7 +10,7 @@ namespace EZLabor.API.SocialMedia.Domain.Services
     public interface IPublicationService
     {
         Task<IEnumerable<Publication>> ListAsync();
-        Task<IEnumerable<Publication>> ListByUserIdAsync(int userId);
+        Task<IEnumerable<Publication>> ListByEmployerIdAsync(int userId);
         Task<PublicationResponse> GetByIdAsync(int id);
         Task<PublicationResponse> SaveAsync(Publication publication);
         Task<PublicationResponse> UpdateAsync(int id, Publication publication);

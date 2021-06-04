@@ -9,7 +9,6 @@ namespace EZLabor.API.SocialMedia.Resources
     {
         public int Id { get; set; }
         public string Content { get; set; }
-        public UserResource User { get; set; }
         public PublicationResource Publication { get; set; }
     }
 }

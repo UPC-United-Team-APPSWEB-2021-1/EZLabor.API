@@ -10,6 +10,5 @@ namespace EZLabor.API.SocialMedia.Resources
         public int Id { get; set; }
         public string Description { get; set; }
         public DateTime NotificationTime { get; set; }
-        public UserResource User { get; set; }
     }
 }

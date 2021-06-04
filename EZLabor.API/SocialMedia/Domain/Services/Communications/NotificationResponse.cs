@@ -1,4 +1,5 @@
-﻿using EZLabor.API.Accounts.Domain.Services.Communications;
+﻿
+using EZLabor.API.Domain.Services.Communications;
 using EZLabor.API.SocialMedia.Domain.Model;
 using System;
 using System.Collections.Generic;

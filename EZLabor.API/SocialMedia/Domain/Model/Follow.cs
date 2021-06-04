@@ -1,4 +1,5 @@
-﻿using EZLabor.API.Domain.Model;
+﻿
+using EZLabor.API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

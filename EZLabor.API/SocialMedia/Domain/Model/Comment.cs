@@ -1,4 +1,5 @@
-﻿using EZLabor.API.Domain.Model;
+﻿
+using EZLabor.API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace EZLabor.API.SocialMedia.Domain.Model
         public Publication Publication { get; set; }
         public int PublicationId { get; set; }
         public string Content { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
+
+        public int FreelancerId { get; set; }
+        public Freelancer Freelancer { get; set; }
+        public int EmployerId { get; set; }
+        public Employer Employer { get; set; }
     }
 }
