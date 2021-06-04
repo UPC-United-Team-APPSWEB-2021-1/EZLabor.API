@@ -6227,23 +6227,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aldai\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UPC\\Trabajos\\2021-1\\Aplicaciones Web\\Proyecto\\Repository\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
+      "projectUniqueName": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
       "projectName": "EZLabor.API",
-      "projectPath": "D:\\UPC\\Trabajos\\2021-1\\Aplicaciones Web\\Proyecto\\Repository\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
-      "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
-      "outputPath": "D:\\UPC\\Trabajos\\2021-1\\Aplicaciones Web\\Proyecto\\Repository\\EZLabor.API\\EZLabor.API\\obj\\",
+      "projectPath": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\EZLabor.API.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\EZLabor.API\\EZLabor.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
