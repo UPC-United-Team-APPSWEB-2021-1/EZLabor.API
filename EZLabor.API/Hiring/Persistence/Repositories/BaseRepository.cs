@@ -1,4 +1,4 @@
-﻿using EZLabor.API.Hiring.Domain.Persistence.Context;
+﻿using EZLabor.API.Domain.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
