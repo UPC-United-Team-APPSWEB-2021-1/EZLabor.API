@@ -11,8 +11,10 @@ namespace EZLabor.API.Domain.Models
         public string Name { get; set; }
         public string Website { get; set; }
         public string CorporativeEmail { get; set; }
-        public List<Proposal> Proposals { get; set; }
 
+
+        public List<Proposal> Proposals { get; set; }
         public List<Offer> Offers { get; set; }
+        
     }
 }
