@@ -3,7 +3,6 @@ using EZLabor.API.Extensions;
 using EZLabor.API.Messaging.Domain.Model;
 using EZLabor.API.Messaging.Domain.Services;
 using EZLabor.API.Messaging.Resources;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -42,6 +41,10 @@ namespace EZLabor.API.Messaging.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Post message",
+            Description = "Post a messages",
+            OperationId = "Post Message")]
         [HttpPost]
         [ProducesResponseType(typeof(MessageResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
@@ -65,7 +68,7 @@ namespace EZLabor.API.Messaging.Controllers
             Description = "List all messages by freelancer id",
             OperationId = "ListByFreelancerIdAsync")]
         [SwaggerResponse(200, "List of Messages by freelancer id", typeof(IEnumerable<MessageResource>))]
-        [HttpGet]
+        [HttpGet("freelancer/{freelancerId}")]
         [ProducesResponseType(typeof(IEnumerable<MessageResource>), 200)]
         public async Task<IEnumerable<MessageResource>> ListByFreelancerIdAsync(int freelancerId)
         {
@@ -81,7 +84,7 @@ namespace EZLabor.API.Messaging.Controllers
             Description = "List all messages by employer id",
             OperationId = "ListByEmployerIdAsync")]
         [SwaggerResponse(200, "List of Messages by employer id", typeof(IEnumerable<MessageResource>))]
-        [HttpGet]
+        [HttpGet("employer/{employerId}")]
         [ProducesResponseType(typeof(IEnumerable<MessageResource>), 200)]
         public async Task<IEnumerable<MessageResource>> ListByEmployerIdAsync(int employerId)
         {
@@ -98,7 +101,7 @@ namespace EZLabor.API.Messaging.Controllers
             Description = "List all messages by employer id and freelancer id",
             OperationId = "ListByFreelancerIdAndEmployerIdAsync")]
         [SwaggerResponse(200, "List of Messages by employer id and freelancer id", typeof(IEnumerable<MessageResource>))]
-        [HttpGet]
+        [HttpGet("freelancer/{freelancerId}/employer/{employerId}")]
         [ProducesResponseType(typeof(IEnumerable<MessageResource>), 200)]
         public async Task<IEnumerable<MessageResource>> ListByFreelancerIdAndEmployerIdAsync(int freelancerId, int employerId)
         {
@@ -108,7 +111,11 @@ namespace EZLabor.API.Messaging.Controllers
             return resources;
         }
 
-        [HttpGet("{id}")]
+        [SwaggerOperation(
+            Summary = "List all messages by id, by freelancer id and employer id",
+            Description = "List all messages by id, by freelancer id and employer id",
+            OperationId = "ListByIdFreelancerIdandEmployerIdAsync")]
+        [HttpGet("{id}/freelancer/{freelancerId}/employer/{employerId}")]
         [ProducesResponseType(typeof(MessageResource), 200)]
         [ProducesResponseType(typeof(BadRequestResult), 404)]
         public async Task<IActionResult> GetByIdAndFreelancerIdAndEmployerIdAsync(int id, int freelancerId, int employerId)

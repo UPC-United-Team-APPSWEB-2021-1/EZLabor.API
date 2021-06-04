@@ -1,10 +1,10 @@
-﻿using EZLabor.API.Messaging.Domain.Persistence.Contexts;
+﻿using EZLabor.API.Commons.Domain.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Messaging.Persistence.Repositories
+namespace EZLabor.API.Commons.Domain.Persistence.Repositories
 {
     public class BaseRepository
     {

@@ -1,5 +1,6 @@
-﻿using EZLabor.API.Messaging.Domain.Model;
-using EZLabor.API.Messaging.Domain.Persistence.Contexts;
+﻿using EZLabor.API.Commons.Domain.Persistence.Contexts;
+using EZLabor.API.Commons.Domain.Persistence.Repositories;
+using EZLabor.API.Messaging.Domain.Model;
 using EZLabor.API.Messaging.Domain.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
