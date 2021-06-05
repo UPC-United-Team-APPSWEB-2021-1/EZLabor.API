@@ -14,12 +14,14 @@ namespace EZLabor.API.Messaging.Services
     {
         private readonly IMessageRepository _messageRepository;
         private readonly IFreelancerRepository _freelancerRepository;
-        private readonly IMessageRepository _employerRepository;
+        private readonly IEmployerRepository _employerRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public MessageService(IMessageRepository messageRepository, IUnitOfWork unitOfWork)
+        public MessageService(IMessageRepository messageRepository, IFreelancerRepository freelancerRepository, IEmployerRepository employerRepository, IUnitOfWork unitOfWork)
         {
             _messageRepository = messageRepository;
+            _freelancerRepository = freelancerRepository;
+            _employerRepository = employerRepository;
             _unitOfWork = unitOfWork;
         }
 
