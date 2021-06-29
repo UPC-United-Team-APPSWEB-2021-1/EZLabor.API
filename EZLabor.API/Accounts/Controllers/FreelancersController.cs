@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using EZLabor.API.Accounts.Domain.Services.Communications;
 using EZLabor.API.Domain.Models;
 using EZLabor.API.Domain.Services;
 using EZLabor.API.Extensions;
 using EZLabor.API.Resources;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -12,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace EZLabor.API.Controllers
 {
+    [Authorize]
     [Route("/api/[controller]")]
     [Produces("application/json")]
     [ApiController]
@@ -24,6 +27,18 @@ namespace EZLabor.API.Controllers
         {
             _freelancerService = freelancerService;
             _mapper = mapper;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate([FromBody] AuthenticationRequest request)
+        {
+            var response = _freelancerService.Authenticate(request);
+
+            if (response == null)
+                return BadRequest(new { message = "Invalid Username or Password" });
+
+                return Ok(response);
         }
 
         [SwaggerOperation(

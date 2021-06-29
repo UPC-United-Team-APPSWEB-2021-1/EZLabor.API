@@ -1,10 +1,18 @@
-﻿using EZLabor.API.Domain.Models;
+﻿using AutoMapper;
+using EZLabor.API.Accounts.Domain.Services.Communications;
+using EZLabor.API.Domain.Models;
 using EZLabor.API.Domain.Persistence.Repositories;
 using EZLabor.API.Domain.Services;
 using EZLabor.API.Domain.Services.Communications;
+using EZLabor.API.Settings;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace EZLabor.API.Services
@@ -14,7 +22,49 @@ namespace EZLabor.API.Services
         private readonly IEmployerRepository _employerRepository;
         private readonly IProposalRepository _proposalRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly AppSettings _appSettings;
+        private readonly IMapper _mapper;
 
+        public EmployerService(IOptions<AppSettings> appSettings)
+        {
+            _appSettings = appSettings.Value;
+        }
+
+        public AuthenticationResponse Authenticate(AuthenticationRequest request)
+        {
+            var user = _employers.SingleOrDefault(x =>
+              x.Username == request.UserName &&
+              x.Password == request.Password);
+            if (user == null || !BCryptNet.BCrypt.Verify(request.Password, user.PasswordHash))
+            {
+                throw new ApplicationException("Username or password ir incorrect");
+            }
+
+            if (user == null) return null;
+
+            var response = _mapper.Map<Employer, AuthenticationResponse>(user);
+            response.Token = GenerateJwtToken(user);
+
+            return response;
+        }
+        private string GenerateJwtToken(Employer employer)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor()
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, employer.Id.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
         public EmployerService(IEmployerRepository employerRepository, IProposalRepository proposalRepository,IUnitOfWork unitOfWork)
         {
             _employerRepository = employerRepository;

@@ -1,4 +1,5 @@
-﻿using EZLabor.API.Domain.Models;
+﻿using EZLabor.API.Accounts.Domain.Services.Communications;
+using EZLabor.API.Domain.Models;
 using EZLabor.API.Domain.Services.Communications;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,7 @@ namespace EZLabor.API.Domain.Services
         Task<EmployerResponse> SaveAsync(Employer employer);
         Task<EmployerResponse> UpdateAsync(int id, Employer employer);
         Task<EmployerResponse> DeleteAsync(int id);
+        AuthenticationResponse Authenticate(AuthenticationRequest request);
+        IEnumerable<Employer> GetAll();
     }
 }
