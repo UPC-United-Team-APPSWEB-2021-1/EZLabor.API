@@ -57,7 +57,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
             builder.Entity<Freelancer>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Freelancer>().Property(p => p.UserName).IsRequired().HasMaxLength(30);
             builder.Entity<Freelancer>().Property(p => p.Email).IsRequired();
-            builder.Entity<Freelancer>().Property(p => p.Password).IsRequired();
             builder.Entity<Freelancer>().Property(p => p.Rating);
             builder.Entity<Freelancer>().Property(p => p.Specially);
 
@@ -69,7 +68,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Id = 100,
                         UserName = "Jhon Andrew",
                         Email = "address100@mail.com",
-                        Password = "password",
                         Rating = 8,
                         Specially = "Graphic Design"
                     },
@@ -78,7 +76,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Id = 101,
                         UserName = "Steve Jobs",
                         Email = "address101@mail.com",
-                        Password = "password",
                         Rating = 9,
                         Specially = "Software Engineering"
                     }
@@ -93,7 +90,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
             builder.Entity<Employer>().Property(p => p.UserName).IsRequired().HasMaxLength(30);
             builder.Entity<Employer>().Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.Entity<Employer>().Property(p => p.Email).IsRequired();
-            builder.Entity<Employer>().Property(p => p.Password).IsRequired();
             builder.Entity<Employer>().Property(p => p.CorporativeEmail);
             builder.Entity<Employer>().Property(p => p.Website);
 
@@ -107,7 +103,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Name = "Geronimo Bustamante Chafloque",
                         UserName = "Gino Bustamante",
                         Email = "address200@mail.com",
-                        Password = "password",
                         CorporativeEmail = "address200@acme.com",
                         Website = "acme.com"
                     },
@@ -117,7 +112,6 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Name = "Maria Fernandez Cabrejo",
                         UserName = "Maria Fernadez",
                         Email = "address201@mail.com",
-                        Password = "password",
                         CorporativeEmail = "address201@microsoft.com",
                         Website = "microsoft.com"
                     }
