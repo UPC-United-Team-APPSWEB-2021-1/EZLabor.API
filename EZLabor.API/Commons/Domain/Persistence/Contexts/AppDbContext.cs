@@ -70,7 +70,6 @@ namespace EZLabor.API.Commons.Domain.Persistence.Contexts
                     }
                 );
 
-
             ///Employer Entity
             builder.Entity<Employer>().ToTable("Employer");
             //Contraints
@@ -82,6 +81,7 @@ namespace EZLabor.API.Commons.Domain.Persistence.Contexts
             builder.Entity<Employer>().Property(p => p.Password).IsRequired();
             builder.Entity<Employer>().Property(p => p.CorporativeEmail);
             builder.Entity<Employer>().Property(p => p.Website);
+
 
 
             //Seed Data
@@ -108,8 +108,6 @@ namespace EZLabor.API.Commons.Domain.Persistence.Contexts
                         Website = "microsoft.com"
                     }
                 );
-
-
             ///Skill Entity
             builder.Entity<Skill>().ToTable("Skill");
             //Contraints

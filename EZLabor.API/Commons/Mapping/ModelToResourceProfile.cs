@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using EZLabor.API.Domain.Models;
+
 using EZLabor.API.Hiring.Domain.Model;
 using EZLabor.API.Hiring.Resources;
 using EZLabor.API.Resources;
 using EZLabor.API.Subscription.Domain.Model;
 using EZLabor.API.Subscription.Resources;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EZLabor.API.Commons.Mapping
+
 {
     public class ModelToResourceProfile: Profile
     {

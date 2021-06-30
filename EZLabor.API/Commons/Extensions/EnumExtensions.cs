@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
+
 namespace EZLabor.API.Commons.Extensions
 {
     public static class EnumExtensions

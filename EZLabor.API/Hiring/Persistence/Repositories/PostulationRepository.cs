@@ -1,6 +1,6 @@
 ﻿
+using EZLabor.API.Domain.Persistence.Contexts;
 using EZLabor.API.Hiring.Domain.Model;
-using EZLabor.API.Hiring.Domain.Persistence.Context;
 using EZLabor.API.Hiring.Domain.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
