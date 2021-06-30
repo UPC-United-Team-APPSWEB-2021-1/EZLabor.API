@@ -1,16 +1,11 @@
 ﻿using EZLabor.API.Domain.Models;
 using EZLabor.API.Extensions;
 using EZLabor.API.Hiring.Domain.Model;
-using EZLabor.API.Messaging.Domain.Model;
-using EZLabor.API.SocialMedia.Domain.Model;
 using EZLabor.API.Subscription.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace EZLabor.API.Domain.Persistence.Contexts
+namespace EZLabor.API.Commons.Domain.Persistence.Contexts
 {
     public class AppDbContext : DbContext
     {
@@ -31,18 +26,9 @@ namespace EZLabor.API.Domain.Persistence.Contexts
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Solution> Solutions { get; set; }
 
-        //SocialMedia System
-        public DbSet<Publication> Publications { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        //public DbSet<Follow> Follows { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-        public DbSet<Qualification> Qualifications { get; set; }
-
         //Subscription System
         public DbSet<SubscriptionPlan> SubscriptionPlans { get; set; }
 
-        //Messaging System
-        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -57,6 +43,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
             builder.Entity<Freelancer>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Freelancer>().Property(p => p.UserName).IsRequired().HasMaxLength(30);
             builder.Entity<Freelancer>().Property(p => p.Email).IsRequired();
+            builder.Entity<Freelancer>().Property(p => p.Password).IsRequired();
             builder.Entity<Freelancer>().Property(p => p.Rating);
             builder.Entity<Freelancer>().Property(p => p.Specially);
 
@@ -68,6 +55,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Id = 100,
                         UserName = "Jhon Andrew",
                         Email = "address100@mail.com",
+                        Password = "password",
                         Rating = 8,
                         Specially = "Graphic Design"
                     },
@@ -76,11 +64,11 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Id = 101,
                         UserName = "Steve Jobs",
                         Email = "address101@mail.com",
+                        Password = "password",
                         Rating = 9,
                         Specially = "Software Engineering"
                     }
                 );
-            
 
             ///Employer Entity
             builder.Entity<Employer>().ToTable("Employer");
@@ -90,10 +78,12 @@ namespace EZLabor.API.Domain.Persistence.Contexts
             builder.Entity<Employer>().Property(p => p.UserName).IsRequired().HasMaxLength(30);
             builder.Entity<Employer>().Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.Entity<Employer>().Property(p => p.Email).IsRequired();
+            builder.Entity<Employer>().Property(p => p.Password).IsRequired();
             builder.Entity<Employer>().Property(p => p.CorporativeEmail);
             builder.Entity<Employer>().Property(p => p.Website);
 
-            
+
+
             //Seed Data
             builder.Entity<Employer>().HasData
                 (
@@ -103,6 +93,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Name = "Geronimo Bustamante Chafloque",
                         UserName = "Gino Bustamante",
                         Email = "address200@mail.com",
+                        Password = "password",
                         CorporativeEmail = "address200@acme.com",
                         Website = "acme.com"
                     },
@@ -112,12 +103,11 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         Name = "Maria Fernandez Cabrejo",
                         UserName = "Maria Fernadez",
                         Email = "address201@mail.com",
+                        Password = "password",
                         CorporativeEmail = "address201@microsoft.com",
                         Website = "microsoft.com"
                     }
                 );
-
-
             ///Skill Entity
             builder.Entity<Skill>().ToTable("Skill");
             //Contraints
@@ -144,7 +134,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                         TechnologyName = "Advanced skill in photoshop",
                     }
                 );
-            
+
 
             ///Proposal Entity
             builder.Entity<Proposal>().ToTable("Proposal");
@@ -164,7 +154,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                 .HasOne(pt => pt.Employer)
                 .WithMany(pt => pt.Proposals)
                 .HasForeignKey(pt => pt.EmployerId);
-            
+
             //Seed Data
             builder.Entity<Proposal>().HasData
                 (
@@ -383,92 +373,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                     }
                 );
 
-            //
-            //SocialMedia System-------------------------------------------------------------
-            //
-
-
-            //Publication Entity
-            builder.Entity<Publication>().ToTable("Publications");
-            //Contraints
-            builder.Entity<Publication>().HasKey(p => p.Id);
-            builder.Entity<Publication>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Publication>().Property(p => p.Name).IsRequired();
-            builder.Entity<Publication>().Property(p => p.UploadAt).IsRequired();
-            builder.Entity<Publication>().Property(p => p.VideoUrl).IsRequired();
-
-            // Relationships
-            builder.Entity<Publication>()
-                .HasMany(p => p.Comments)
-                .WithOne(p => p.Publication)
-                .HasForeignKey(p => p.PublicationId);
-
-            // Seed Data
-            builder.Entity<Publication>().HasData
-                (
-                    new Publication { Id = 100, Name = "Graphic Designer Wanted", UploadAt = DateTime.ParseExact("19/12/2018", "dd/MM/yyyy", null), VideoUrl = "www.youtube.com/tyr456", FreelancerId = 100 }
-                );
-
-            //Comment Entity
-            builder.Entity<Comment>().ToTable("Comments");
-            //Contraints
-            builder.Entity<Comment>().HasKey(p => p.Id);
-            builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Comment>().Property(p => p.Content).IsRequired();
-
-            // Seed Data
-            builder.Entity<Comment>().HasData
-                (
-                new Comment { Id = 45, PublicationId = 100, Content = "Raddaraddaradda" }
-                );
-
-            //Notification Entity
-            builder.Entity<Notification>().ToTable("Notifications");
-            //Contraints
-            builder.Entity<Notification>().HasKey(p => p.Id);
-            builder.Entity<Notification>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Notification>().Property(p => p.Description).IsRequired();
-            builder.Entity<Notification>().Property(p => p.NotificationTime).IsRequired();
-
-            // Seed Data
-            builder.Entity<Notification>().HasData
-                (
-                new Notification { Id = 53, Description = "Has añadido a la planilla laboral", NotificationTime = DateTime.Parse("14:05"), FreelancerId = 100 }
-                );
-            
-            
-            
-            // Relationships
-
-            builder.Entity<Freelancer>()
-                .HasMany(p => p.Comments)
-                .WithOne(p => p.Freelancer)
-                .HasForeignKey(p => p.FreelancerId);
-
-            builder.Entity<Freelancer>()
-                .HasMany(p => p.Publications)
-                .WithOne(p => p.Freelancer)
-                .HasForeignKey(p => p.FreelancerId);
-
-            builder.Entity<Freelancer>()
-                .HasMany(p => p.Notifications)
-                .WithOne(p => p.Freelancer)
-                .HasForeignKey(p => p.FreelancerId);
-
-            builder.Entity<Employer>()
-                .HasMany(p => p.Comments)
-                .WithOne(p => p.Employer)
-                .HasForeignKey(p => p.EmployerId);
-
-            builder.Entity<Employer>()
-                .HasMany(p => p.Publications)
-                .WithOne(p => p.Employer)
-                .HasForeignKey(p => p.EmployerId);
-
-            builder.Entity<Employer>()
-                .HasMany(p => p.Notifications)
-                .WithOne(p => p.Employer)
-                .HasForeignKey(p => p.EmployerId);
+           
 
             //
             //Suscription System-------------------------------------------------------------
@@ -503,60 +408,7 @@ namespace EZLabor.API.Domain.Persistence.Contexts
                 .WithMany(p => p.Freelancers)
                 .HasForeignKey(p => p.SubscriptionPlanId);
 
-            //
-            //Messaging System-------------------------------------------------------------
-            //
-
-            ///Message Entity
-            builder.Entity<Message>().ToTable("Message");
-            //Contraints
-            builder.Entity<Message>().HasKey(p => p.Id);
-            builder.Entity<Message>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Message>().Property(p => p.Content).IsRequired();
-
-            //Relationships
-            builder.Entity<Message>()
-                .HasOne(pt => pt.Freelancer)
-                .WithMany(pt => pt.Messages)
-                .HasForeignKey(pt => pt.FreelancerId);
-            builder.Entity<Message>()
-                .HasOne(pt => pt.Employer)
-                .WithMany(pt => pt.Messages)
-                .HasForeignKey(pt => pt.EmployerId);
-
-
-            //Seed Data
-            builder.Entity<Message>().HasData
-                (
-                    new Message
-                    {
-                        Id = 501,
-                        Content = "Hello!",
-                        FreelancerId = 100,
-                        EmployerId = 200
-                    },
-                    new Message
-                    {
-                        Id = 502,
-                        Content = "Hi there!",
-                        FreelancerId = 100,
-                        EmployerId = 200
-                    },
-                    new Message
-                    {
-                        Id = 503,
-                        Content = "How are you?",
-                        FreelancerId = 100,
-                        EmployerId = 200
-                    },
-                    new Message
-                    {
-                        Id = 504,
-                        Content = "Good and you?",
-                        FreelancerId = 100,
-                        EmployerId = 200
-                    }
-                );
+            
             // Apply Naming Convention
             builder.ApplySnakeCaseNamingConvention();
         }

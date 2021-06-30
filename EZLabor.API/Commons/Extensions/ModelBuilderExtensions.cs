@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EZLabor.API.Extensions
+namespace EZLabor.API.Commons.Extensions
 {
     public static class ModelBuilderExtensions
     {

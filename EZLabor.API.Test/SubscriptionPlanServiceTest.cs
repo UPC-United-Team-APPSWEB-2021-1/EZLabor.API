@@ -1,7 +1,5 @@
-﻿using EZLabor.API.Domain.Models;
-using EZLabor.API.Domain.Persistence.Repositories;
-using EZLabor.API.Domain.Services.Communications;
-using EZLabor.API.Services;
+
+﻿using EZLabor.API.Domain.Persistence.Repositories;
 using EZLabor.API.Subscription.Domain.Model;
 using EZLabor.API.Subscription.Domain.Persistence.Repositories;
 using EZLabor.API.Subscription.Domain.Services.Communications;
