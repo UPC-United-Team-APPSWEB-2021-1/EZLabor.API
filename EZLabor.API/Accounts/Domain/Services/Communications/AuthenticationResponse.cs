@@ -13,8 +13,23 @@ namespace EZLabor.API.Domain.Services.Communications
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Password { get; set; }
+
+
+
+
+        public SubscriptionPlan SubscriptionPlan { get; set; }
+        public int SubscriptionPlanId { get; set; }
+        public List<Comment> Comments { get; set; }
+        public List<Publication> Publications { get; set; }
+        public List<Notification> Notifications { get; set; }
+        public List<Message> Messages { get; set; }
+
+
+
+
+
+
         public string Token { get; set; }
 
         public AuthenticationResponse(User user, string token)
@@ -23,8 +38,6 @@ namespace EZLabor.API.Domain.Services.Communications
             UserName = user.UserName;
             Email = user.Email;
             Token = token;
-            FirstName = user.FirstName;
-            LastName = user.LastName;
         }
 
         public AuthenticationResponse()
