@@ -26,15 +26,19 @@ namespace EZLabor.API.Services
             new User
             {
                 Id = 1,
-                UserName = "Aldair",
+                UserName = "aldor98",
                 Email = "aldaircuarez98@gmail.com",
+                FirstName = "Aldair",
+                LastName = "Cuarez",
                 PasswordHash = BCryptNet.BCrypt.HashPassword("123")
             },
             new User
             {
                 Id = 1,
-                UserName = "JohnDoe",
-                Email = "Doe@gmail.com",
+                UserName = "John45",
+                Email = "jonas_45@gmail.com",
+                FirstName = "Jones",
+                LastName = "Sylver",
                 PasswordHash = BCryptNet.BCrypt.HashPassword("123")
             },
         };
